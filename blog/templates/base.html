@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8" /> 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="/static/css/skyin.css" rel="stylesheet">
+    <script src="//cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+    <script src="/static/css/skyin.js"></script>
+    <script src="/static/css/skyin-mctrl.js"></script>
+    <script type="text/javascript" src="/static/style/js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="/static/style/js/jquery.min.js"></script>
+{#new--add#}
+<link rel="stylesheet" type="text/css" href="/static/style/css/style.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/static/style/css/media-queries.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/static/style/js/fancybox/jquery.fancybox.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/static/style/js/fancybox/helpers/jquery.fancybox-buttons0ff5.css?v=1.0.2" />
+<link rel="stylesheet" type="text/css" href="/static/style/js/fancybox/helpers/jquery.fancybox-thumbs0ff5.css?v=1.0.2" />
+<link rel="stylesheet" href="/static/style/type/fontello.css">
+
+
+    <link rel="stylesheet" href="/static/style/css/bootstrap.min.css">
+    <script src="/static/style/js/bootstrap.min.js"></script>
+    <style>
+        .container{
+            padding:5px;
+        }
+        .navbar-brand{
+            padding:5px;
+        }
+        pre{
+            border:none;
+        }
+        label{
+            color:#fff;
+        }
+        hr{
+            margin:10px 0;
+            color:#333;
+            border-top:2px solid #333;
+        }
+        tab{
+            font-size:1.95em;
+        }
+    </style>
+
+{#new--add#}
+<meta http-equiv="Content-Language" content="zh-cn">
+{% block meta %}
+<meta name="description" content="从前有座山">
+{% endblock %}
+<meta name="AUTHOR" content="Eason">
+<title>{{ info.title }} - {{ info.subtitle }}</title>
+</head>
+<body style="background: #333">
+{#<canvas id="cvs"></canvas>#}
+{#<nav id="nav">#}
+{#<div id="circle"><span>Eason.Sun</span></div>#}
+{#<div id="navcate">&#61641;</div>#}
+{#</nav>#}
+{# 导航条 #}
+    <div class="nav navbar-inverse">
+        <div class="container">
+
+            <div class="navbar-header">
+            <button class="navbar-toggle" data-toggle="collapse" data-target="#mymenu">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+                <a href="#" class="navbar-brand"><img src="/static/style/images/eason_logo.png"></a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="mymenu">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="/">Home</a></li>
+                    {% for (id,cate) in info.cate.items() %}
+                    <li><a href='/arch{{ id }}/1'>{{ cate }}</a></li>
+                      {% endfor %}
+                    <li><a href='/memo'>Feedback</a></li>
+                    <li><a href='/wish'>Wishes</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{# 导航条 #}
+
+        <!-- End Menu -->
+        <div class="clear"></div>
+      <!-- End Header -->
+
+{#      <div class="intro">#}
+{#        <p>A <strong>network management</strong> company that values <em>quality</em> not quantity and focuses on establishing long-term relationships with clients.</p>#}
+{#      </div>#}
+    </div>
+  </div>
+  <!-- End Top Wrapper -->
+  <!-- Begin Wrapper -->
+{#幻灯部分#}
+{% block slide %}
+
+{% endblock slide %}
+{#幻灯部分#}
+
+
+{#<div id="mask"></div>#}
+{% block main %}
+<push></push>
+<div class="main">
+<div class="full">
+{% block content %}{% endblock %}
+</div>
+</div><div class="sidebar">
+<div class="full">
+{{ info.sidebar|safe }}
+<div class="well small">
+<tab>标签</tab>
+<hr>
+{{ info.tags|safe }}
+</div>
+<br>
+<br>
+</div>
+</div>
+{% endblock %}
+<br><br><br><br><br>
+<footer id="footer" style="background:#333">
+    <p id="time"></p>
+    <p>Powered by Eason.Sun</p>
+    <a href="#" target="_blank">﻿博客源码</a>||<a href="#">订阅本博客</a>
+</footer>
+</body>

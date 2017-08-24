@@ -1,0 +1,81 @@
+<style>
+        .inner {
+            padding-bottom: 240px;
+        }
+    </style>
+{% extends "base.html" %}
+
+{% block slide %}
+{#<script type="text/javascript" src="/static/style/js/ddsmoothmenu.js"></script>#}
+{#<script type="text/javascript" src="/static/style/js/jquery.isotope.min.js"></script>#}
+{#<script type="text/javascript" src="/static/style/js/twitter.min.js"></script>#}
+{#<script type="text/javascript" src="/static/style/js/selectnav.js"></script>#}
+{#<script type="text/javascript" src="/static/style/js/jquery.slickforms.js"></script>#}
+{#<script type="text/javascript" src="/static/style/js/jquery.easytabs.min.js"></script>#}
+<script type="text/javascript" src="/static/style/js/jquery.themepunch.plugins.min.js"></script>
+<script type="text/javascript" src="/static/style/js/jquery.themepunch.revolution.min.js"></script>
+{#<script type="text/javascript" src="/static/style/js/jquery.fitvids.js"></script>#}
+<script type="text/javascript" src="/static/style/js/jquery.fancybox.pack.js"></script>
+{#<script type="text/javascript" src="/static/style/js/fancybox/helpers/jquery.fancybox-buttons0ff5.js?v=1.0.2"></script>#}
+{#<script type="text/javascript" src="/static/style/js/fancybox/helpers/jquery.fancybox-thumbs0ff5.js?v=1.0.2"></script>#}
+{#<script type="text/javascript" src="/static/style/js/fancybox/helpers/jquery.fancybox-mediae209.js?v=1.0.0"></script>#}
+<script type="text/javascript" src="/static/style/js/scripts.js"></script>
+
+<div class="wrapper">
+    <div class="inner light no-margin">
+      <div class="bannercontainer">
+        <div class="banner">
+          <ul>
+            <li data-transition="random"> <img src="/static/style/images/art/s1.jpg" alt="" />
+              <div class="caption sft red-bg" data-x="70" data-y="70" data-speed="300" data-start="1500" data-easing="easeOutExpo">Welcome to Eason's blog</div>
+              <div class="caption sfl white-bg" data-x="70" data-y="151" data-speed="300" data-start="2100" data-easing="easeOutExpo"><i class="icon-check"></i> Life is not all roses.</div>
+              <div class="caption sfl white-bg" data-x="70" data-y="198" data-speed="300" data-start="2700" data-easing="easeOutExpo"><i class="icon-check"></i> Stay hungry. Stay foolish.</div>
+              <div class="caption sfl white-bg" data-x="70" data-y="245" data-speed="300" data-start="3300" data-easing="easeOutExpo"><i class="icon-check"></i> Suffering is the most powerful teacher of life.</div>
+              <div class="caption sfb" data-x="70" data-y="319" data-speed="300" data-start="3900" data-easing="easeOutExpo"><a href="project.html" class="button big navy">View Projects</a></div>
+            </li>
+            <li data-transition="random"> <img src="/static/style/images/art/s2.jpg" alt="" />
+              <div class="caption navy-bg lfr" data-x="660" data-y="80" data-speed="300" data-start="800" data-easing="easeOutExpo">Connect from anywhere, anytime</div>
+            </li>
+            <li data-transition="random"> <img src="/static/style/images/art/s3.jpg" alt="" />
+              <div class="caption navy-bg sft" data-x="80" data-y="80" data-speed="300" data-start="800" data-easing="easeOutExpo">Observe the operations and opportunities</div>
+              <div class="caption sfb" data-autoplay="false" data-x="80" data-y="161" data-speed="700" data-start="1600" data-easing="easeOutExpo">
+
+              </div>
+            </li>
+          </ul>
+          <div class="tp-bannertimer tp-bottom"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock slide %}
+
+{% block content %}
+
+{%- for result in results %}
+<i class="fa fa-bath" aria-hidden="true"></i>
+<div class="well big">
+<center>
+    <a href="/article/{{ result.id }}" target="_blank"><h2>{{ result.title }}</h2></a>
+    <small>Posted on : {{ result.date[0:10] }}</small>
+</center>
+    <div class="catetag">{{ info.cate[result.file] }}</div>
+    <pre>{{ result.abstract }}{{ result.img|safe }}</pre>
+    <small>
+    <span style="font-style:normal;">&#61484;&nbsp;</span>
+    {%- for tag in result.tag.split(',') %}
+    <a href="/arch/{{ tag }}/1"  class="nul"><span class="tag">{{ tag }}</span></a>
+    {%- endfor %}
+    </small>
+<center>
+    <a href="/article/{{ result.id }}" target="_blank"><button class="sm">阅读全文</button></a>
+</center>
+<br>
+</div>
+<br><br>
+{%- endfor %}
+{%- for num in pagn %}
+<a href='/page/{{ num[2] }}'><pagn class="{{ num[1] }}">{{ num[0] }}</pagn></a>
+{%- endfor %}
+    <script src="/static/css/skyin-mctrl.js"></script>
+{% endblock %}
